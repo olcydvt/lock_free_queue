@@ -18,6 +18,8 @@ public:
 	std::atomic<Node*> head;
 	std::atomic<Node*> tail;
 
+	Queue() : head(nullptr), tail(nullptr) {}
+
 	void push(T val) {
 		Node* new_node = new Node(val);
 		Node* current_tail = tail.load(std::memory_order_acquire);
